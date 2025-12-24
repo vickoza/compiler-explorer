@@ -1,4 +1,4 @@
-// Copyright (c) 2024, Compiler Explorer Authors
+// Copyright (c) 2025, Compiler Explorer Authors
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -22,15 +22,6 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-import {PropertyGetter} from '../properties.interfaces.js';
+export const AssemblySyntaxesList = ['att', 'intel'] as const;
 
-import {AsmParser} from './asm-parser.js';
-
-export class OdinAsmParser extends AsmParser {
-    constructor(compilerProps?: PropertyGetter) {
-        super(compilerProps);
-
-        this.labelDef = /^(?:\.proc\s+)?("(?:[^"]+)"|[\w$.@-]+(?:::[\w$.@-]+)*):/i;
-        this.labelFindNonMips = /"(?:[^"]+)"|[\w$.@-]+(?:::[\w$.@-]+)*/g;
-    }
-}
+export type AssemblySyntax = (typeof AssemblySyntaxesList)[number];
